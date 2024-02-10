@@ -16,6 +16,7 @@ function preload() {
     //carrega a imagem de fundo
     this.load.image('Mar', 'assets/fundoMar.png');
 
+    //carrega a imagem das bolhas
     this.load.image('bolhas', 'assets/bolhas.png')
 
     //carrega a imagem das algas
