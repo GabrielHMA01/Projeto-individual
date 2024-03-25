@@ -1,12 +1,18 @@
+var width = 1200
+var height = 1200
+
 var config = {
     type: Phaser.AUTO,
-    width: 800,
-    height: 600,
+    width: width,
+    height: height,
 
     scene: {
         preload: preload,
         create: create,
         update: update
+    },
+    scale: {
+        mode: Phaser.Scale.RESIZE
     }
 };
 
@@ -41,19 +47,19 @@ function create () {
     main_theme.play();
 
     //adiciona o fundo
-    this.add.image(400, 300, 'Mar');
+    this.add.image(width/2, height/2, 'Mar').setScale();
 
     //adiciona a imagem das algas
-    this.add.image(120, 500, 'algas') .setScale (0.12);
+    this.add.image(400, 1000, 'algas') .setScale (0.2);
 
     //adiciona a logo do inteli
-    this.add.image(400, 75, 'logo') .setScale (0.5);
+    this.add.image(600, 75, 'logo') .setScale (1);
 
     //guarda o tubarão em uma variável
-    tubarao = this.add.image(400, 300, 'peixe');
+    tubarao = this.add.image(400, 300, 'peixe').setScale(2);
 
     //guarda as bolhas em uma variável
-    bolhas = this.add.image(375, 250, 'bolhas') .setScale (0.2);
+    bolhas = this.add.image(375, 250, 'bolhas') .setScale (0.3);
 
     //flipa a imagem do tubarão
     tubarao.setFlip(true, false);
@@ -68,9 +74,9 @@ function update () {
     tubarao.y = this.input.y;
 
     //adiciona movimentos às bolhas que acompanham o tubarão com um deslocamento no eixo X
-    bolhas.x = this.input.x-100;
+    bolhas.x = this.input.x-200;
     bolhas.y = this.input.y;
 }
     //exibe mensagens antes de iniciar o jogo
-    window.alert ("Bem vindo!");
-    window.confirm ("Vamos começar? obs: O carregamento pode levar alguns instantes");
+    // window.alert ("Bem vindo!");
+    // window.confirm ("Vamos começar? obs: O carregamento pode levar alguns instantes");
